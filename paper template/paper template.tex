@@ -1,0 +1,122 @@
+%需使用xelatex编译
+\documentclass[UTF8,a4paper]{ctexart}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{subfigure}
+%\usepackage{fancyhdr}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}%页边距
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{array}% 表格
+\usepackage{longtable}%% 长表格
+\usepackage{pdfpages}
+\usepackage{bm}
+\usepackage[section]{placeins}%禁止浮动体跨subsection
+\linespread{1}%单倍行距
+%附录代码格式
+\newfontfamily\consolas{Consolas}
+\lstset{
+columns=fullflexiblem,
+breaklines=true,
+%numbers=left,%在左侧显示行号
+frame=none,%不显示背景边框
+backgroundcolor=\color[RGB]{245,245,244},%设定背景颜色
+%keywordstyle=\color[RGB]{40,40,255},%设定关键字颜色
+%numberstyle=\consolas\color{darkgray},%设定行号格式
+commentstyle=\tt,%设置代码注释的格式
+%stringstyle=\color{myorange},%设置字符串格式
+showstringspaces=false,%不显示字符串中的空格
+basicstyle=\consolas,%\color{mygreen},
+extendedchars=false 
+}
+\numberwithin{equation}{section}%新节编号自动清0
+\numberwithin{table}{section}
+\numberwithin{figure}{section}
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}%公式按节编号
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+\begin{document}
+%\begin{titlepage}
+%\includepdf{firstpage.pdf}%封面
+%\end{titlepage}
+\pagestyle{plain}
+\begin{center}
+\bfseries\zihao{3}
+数学建模A
+\end{center}
+
+
+\begin{center}
+\bfseries\zihao{4}
+摘要
+\end{center}
+\zihao{-4}%
+摘要正文
+\CTEXsetup[name={,、},number={\chinese{section}}]{section}%一级标题序号中文
+\titleformat*{\section}{\centering\zihao{4}\bfseries}%一级标题字体
+\titleformat{\subsection}{\zihao{-4}\bfseries}{\thesubsection}{1em}{}%二级标题字体
+\titleformat{\subsubsection}{\zihao{-4}\bfseries}{\thesubsubsection}{1em}{}
+\zihao{-4}%正文字号
+\newpage
+\section{问题重述}
+\subsection{引言}
+
+\subsection{问题提出}
+
+\section{模型假设}
+\begin{enumerate}[label=(\arabic*)]
+\item 假设1
+\item 假设2
+\end{enumerate}
+\section{符号说明}
+%\renewcommand\arraystretch{2}%宽松
+%\begin{center}
+%\begin{tabular}{|c|c|}
+
+%\end{center}
+\section{问题分析}
+%插入图片
+%\begin{figure}[!htp]
+%	\centering
+%	\includegraphics[width=7cm]{Pictures/图像坐标系.pdf}
+%	\caption{图像坐标系}
+%	\label{fig:tx}
+%\end{figure}
+
+
+%\FloatBarrier%禁止上面的浮动体跨过这里
+%插入子图
+%\begin{figure}[!htp]\setcounter{subfigure}{0}
+%	\centering
+%	\subfigure[T=0]{\includegraphics[width=4.5cm]{Pictures/b0..png}}
+%	\subfigure[T=0.2]{\includegraphics[width=4.5cm]{Pictures/b0.2.png}}
+%	\subfigure[T=0.4]{\includegraphics[width=4.5cm]{Pictures/b0.4.png}}
+%	\subfigure[T=0.6]{\includegraphics[width=4.5cm]{Pictures/b0.6.png}}
+%	\subfigure[T=0.8]{\includegraphics[width=4.5cm]{Pictures/b0.8.png}}
+%	\subfigure[T=0.9]{\includegraphics[width=4.5cm]{Pictures/b0.9.png}}
+%	\caption{几种阈值下的a01的二值图}
+%	\label{fig:yzt}
+%\end{figure}
+%引用子图
+%\ref{fig:ds}\subref{ds1}
+
+%\begin{thebibliography}{99}
+%参考文献
+ % \bibitem{b8}FITS Working Group,Deﬁnition of the Flexible Image Transport System \url{https://fits.gsfc.nasa.gov/standard40/fits_standard40draft1.pdf},2017.5.13
+%\end{thebibliography}
+\section*{附录}
+%\noindent{\heiti\zihao{-4}附录一:Mathematica 代码}
+%\lstinputlisting[language=Mathematica]{../CodeAndData/mma.txt}
+
+%\noindent{\heiti\zihao{-4}附录二:Matlab 代码}
+%\lstinputlisting[language=Matlab]{../CodeAndData/p1.m}
+%\noindent{\heiti\zihao{-4}附录一:Mathematica 代码}
+%\centerline{M1.nb}
+%\lstinputlisting[language=Mathematica]{../支撑文件/MathematicaCode.txt}
+%\begin{lstlisting}
+%\end{lstlisting}
+\end{document}
