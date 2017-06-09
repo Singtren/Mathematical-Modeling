@@ -1,0 +1,16 @@
+In[1]:= l={36.8,31.8,43.8,36.8,32.1,45.1,35.9,32.1};
+m={765,482,1162,737,482,1389,652,454};
+w={24.8,21.3,27.9,24.8,21.6,31.8,22.9,21.6};
+data=Thread[List[l,w,m]];
+In[5]:= f1[l_,w_]:=k l w;
+k=k/.Minimize[Sum[(f1[data[[i,1]],data[[i,2]]]-data[[i,3]])^2,{i,1,8}],k][[2]]
+Out[6]= 0.8608
+In[7]:= Rsquare[f_,y_]:=Total[(f-Mean[y])^2]/Total[(y-Mean[y])^2]
+In[8]:= Rsquare[f1@@#&/@data[[All,1;;2]],data[[All,3]]]
+Out[8]= 0.484952
+In[9]:= Clear[A]
+In[10]:= f2[l_,w_]:=A l w^2;
+In[11]:= A=A/.Minimize[Sum[(f2[data[[i,1]],data[[i,2]]]-data[[i,3]])^2,{i,1,8}],A][[2]]
+Out[11]= 0.0322477
+In[12]:= Rsquare[f2@@#&/@data[[All,1;;2]],data[[All,3]]]
+Out[12]= 1.08423
